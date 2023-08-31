@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import OptionSiderBarImgProducts from './components/OptionSiderBarImgProducts'
 function App() {
 
-
   const optionsActionImageProducts = [
     'Adicionar imagem',
     'Criar associação',
@@ -28,15 +27,12 @@ function App() {
         <Sidebar>
           {optionsActionImageProducts.map((option, index) => (
             <div key={index}>
-              <label>
                 <OptionSiderBarImgProducts
                   type="radio"
                   value={option}
                   checked={selectedOption === option}
                   onChange={handleOptionChange}
                 />
-                {option}
-              </label>
             </div>
           ))}
         </Sidebar>
