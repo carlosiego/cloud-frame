@@ -14,8 +14,9 @@ function App() {
 
   const [selectedOption, setSelectedOption] = useState(optionsActionImageProducts[0]);
 
-  const handleOptionChange = (option) => {
-    setSelectedOption(option)
+  const handleOptionChange = (event) => {
+    setSelectedOption(event.target.value)
+    console.log(selectedOption)
   }
 
   return (
@@ -25,19 +26,21 @@ function App() {
       </Header>
       <Body>
         <Sidebar>
-          {optionsActionImageProducts.map((option, index) => (
-            <div key={index}>
+          <RadioInputContainer>
+            {optionsActionImageProducts.map((option, index) => (
+              <div key={index}>
                 <OptionSiderBarImgProducts
                   type="radio"
                   value={option}
                   checked={selectedOption === option}
-                  onChange={handleOptionChange}
+                  onChange={(handleOptionChange)}
                 />
-            </div>
-          ))}
+              </div>
+            ))}
+          </RadioInputContainer>
         </Sidebar>
         <Content>
-          <h1>Ferramental</h1>
+          <h1>{selectedOption}</h1>
         </Content>
       </Body>
     </>
@@ -63,19 +66,27 @@ const Body = styled.div`
 
 const Sidebar = styled.div`
   display: flex;
+  padding: 20px 0px 0px 10px;
   align-items: center;
   flex-direction: column;
   flex: 1;
-  background-color: #faaeae;
-
+  background-color: #E6E6E6;
 `
+const RadioInputContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  gap: 24px;
+`;
+
 const Content = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   flex: 4;
-  background-color: #663bff;
+  background-color: #FBFBFF;
 
 `
+
 
 export default App
