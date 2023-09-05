@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import styled from 'styled-components'
 import OptionSiderBarImgProducts from './components/OptionSiderBarImgProducts'
+import MyForm from './components/FormCreateImageProd';
 function App() {
 
   const optionsActionImageProducts = [
@@ -40,7 +41,7 @@ function App() {
           </RadioInputContainer>
         </Sidebar>
         <Content>
-          <h1>{selectedOption}</h1>
+          {selectedOption === 'Adicionar imagem' ? <MyForm/> : <></>}
         </Content>
       </Body>
     </>
@@ -81,8 +82,7 @@ const RadioInputContainer = styled.div`
 
 const Content = styled.div`
   display: flex;
-  justify-content: center;
-  align-items: center;
+  padding: 20px;
   flex: 4;
   background-color: #FBFBFF;
 
